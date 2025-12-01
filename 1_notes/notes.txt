@@ -1,0 +1,15 @@
+To run a C file in the terminal on a Mac, follow these steps:
+
+ Compile the C program:
+
+to compile hello.c and create an output file called hello,
+
+gcc -o hello hello.c
+
+---------------------------------------
+
+Run the compiled program:
+
+After compilation, run the program by typing:
+
+./hello
