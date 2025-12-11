@@ -1,22 +1,44 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-    int employees;
-    int i;
-    int cDown;
+    int ctr, numMovies, rating, favRating, leastRating;
+    char movieName[40], favorite[40], least[40];
 
-    printf("How many employees in the organization? ");
-    scanf("%d", &employees);
+    favRating = 0;
+    leastRating = 10;
 
-    for (i = 1; i <= employees; i++)
-    {
-        for (cDown = 10; cDown >= 0; cDown--)
-        {
-            printf("%d\n", cDown);
+    do {
+        printf("How many movies have you seen this year? ");
+        scanf("%d", &numMovies);
+
+        if(numMovies < 1){
+            printf("No movies! How can you rank them? Try again!");
         }
-        printf("Blast off!\n");
-        return 0;
+    } while (numMovies < 1);
+
+    for (ctr = 1; ctr <= numMovies; ctr++)
+    {
+        printf("What was the name of the movie? (1-word titles only!) ");
+        scanf("%s", movieName);
+        printf("On a scale of 1 to 10, what would you rate it? ");
+        scanf("%d", &rating);
+    }
+    if (rating > favRating)
+    {
+        strcpy(favorite, movieName);
+        favRating = rating;
     }
 
+    if (rating < leastRating)
+    {
+        strcpy(least, movieName);
+        leastRating = rating;
+    }
+
+    printf("\nYour Favorite Movie was %s.\n", favorite);
+    printf("\nYour Least-favorite Movie was %s.", least);
+
+    return 0;
 }
